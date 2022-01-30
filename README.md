@@ -13,4 +13,16 @@ This was mostly the same as the previous project, only weather description was a
 
 ## Vacation Search
 
+Once we had the list of cities and their weather, we were able to match them up with user preferences.  To get those preferences, we asked them using `min_temp = float(input("What is the minimum temperature you would like for your trip? "))` (and likewise for max).  We were then able to filter the data to meet their criteria using `preferred_cities_df = city_data_df.loc[(city_data_df["Max Temp"] <= max_temp) & (city_data_df["Max Temp"] >= min_temp)]`.  When creating the Gmaps figure, we were able to dispaly our newly found weather description by adding `<dt>Current Weather</dt><dd>{Current Description} and {Max Temp} °F</dd>` to the info box template.
+
+![Vacation Map](https://github.com/Jeffstr00/World_Weather_Analysis/blob/main/Vacation_Search/WeatherPy_vacation_map.png)
+
 ## Vacation Itinerary
+
+Once the users were presented with all of those options, they were able to pick out some hotels which met their preferred criteria.  In our case, they chose four locations in South America's French Guiana.  
+
+![Travel Itinerary Map](https://github.com/Jeffstr00/World_Weather_Analysis/blob/main/Vacation_Itinerary/WeatherPy_travel_map_markers.png)
+
+From here, dataframes were created for each of those locations using `vacation_start = vacation_df.loc[vacation_df.City == "Iracoubo"]`.  Latitude/longitude coordinates were extracted and formed into a list using `start = vacation_start[["Lat","Lng"]].to_numpy()` `start = map(tuple, start)` `start = tuple(start)[0]`.  (The same was also done for stops 1-3 and the ending point, which is the same as the starting point).  We were then able to use those coordinate lists to create a Gmaps directions map by using the following code: `gf_trip = gmaps.directions_layer(start, end, waypoints=[stop1,stop2,stop3], travel_mode='DRIVING')`, which provided us with the following itinerary map:
+
+![Travel Itinerary Map](https://github.com/Jeffstr00/World_Weather_Analysis/blob/main/Vacation_Itinerary/WeatherPy_travel_map.png)
