@@ -13,7 +13,7 @@ This was mostly the same as the previous project, only weather description was a
 
 ## Vacation Search
 
-Once we had the list of cities and their weather, we were able to match them up with user preferences.  To get those preferences, we asked them using `min_temp = float(input("What is the minimum temperature you would like for your trip? "))` (and likewise for maximum).  We were then able to filter the data to meet their criteria using `preferred_cities_df = city_data_df.loc[(city_data_df["Max Temp"] <= max_temp) & (city_data_df["Max Temp"] >= min_temp)]`.  When creating the Gmaps figure, we were able to dispaly our newly found weather description by adding `<dt>Current Weather</dt><dd>{Current Description} and {Max Temp} °F</dd>` to the info box template.
+Once we had the list of cities and their weather, we were able to match them up with user preferences.  To get those preferences, we asked them using `min_temp = float(input("What is the minimum temperature you would like for your trip? "))` (and likewise for maximum).  We were then able to filter the data to meet their criteria using `preferred_cities_df = city_data_df.loc[(city_data_df["Max Temp"] <= max_temp) & (city_data_df["Max Temp"] >= min_temp)]`.  When creating the Gmaps figure, we were able to display our newly found weather description by adding `<dt>Current Weather</dt><dd>{Current Description} and {Max Temp} °F</dd>` to the info box template.
 
 ![Vacation Map](https://github.com/Jeffstr00/World_Weather_Analysis/blob/main/Vacation_Search/WeatherPy_vacation_map.png)
 
